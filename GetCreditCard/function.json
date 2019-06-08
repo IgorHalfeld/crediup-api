@@ -5,9 +5,9 @@
       "type": "httpTrigger",
       "direction": "in",
       "name": "req",
-      "route": "credit-card",
+      "route": "credit-cards/{userId}",
       "methods": [
-        "post"
+        "get"
       ]
     },
     {
