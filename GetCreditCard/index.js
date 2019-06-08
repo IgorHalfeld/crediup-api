@@ -28,10 +28,8 @@ module.exports = async function (context, req) {
         number: 1,
         cvv: 1,
         expirationDate: 1,
-        creditValue: 1,
         _id: 1,
         user: 1,
-        score: 1,
     }}
   ]);
   closeConnectionFn();

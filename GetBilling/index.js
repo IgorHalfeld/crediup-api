@@ -24,7 +24,6 @@ module.exports = async function (context, req) {
     }},
     { $unwind: '$user' },
     { $project: {
-        expense: 1,
         createdAt: 1,
         seller: 1,
         _id: 1,
