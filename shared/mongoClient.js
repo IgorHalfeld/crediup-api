@@ -10,6 +10,9 @@ module.exports = () => new Promise((resolve, reject) => {
       ? reject(err)
       : resolve({
           client: mongoConnection.db(config.dbName),
+          closeConnectionFn: () => setTimeout(() => {
+            mongoConnection.close();
+          }, 1000),
           mongoConnection,
         })
     );
