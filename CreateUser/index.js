@@ -1,16 +1,22 @@
-module.exports = async function (context, req) {
-    context.log('JavaScript HTTP trigger function processed a request.');
+const createMongoClient = require('../shared/mongoClient');
 
-    if (req.query.name || (req.body && req.body.name)) {
-        context.res = {
-            // status: 200, /* Defaults to 200 */
-            body: "Hello " + (req.query.name || req.body.name)
-        };
-    }
-    else {
-        context.res = {
-            status: 400,
-            body: "Please pass a name on the query string or in the request body"
-        };
-    }
+module.exports = async function (context, req) {
+  const {
+    name,
+    email,
+    password,
+  } = req.body;
+
+  const { client: MongoClient, closeConnectionFn } = await createMongoClient();
+  const User = MongoClient.collection('users');
+
+  const {
+    result,
+    ops,
+  } = await User.insert({
+    name, email, password,
+  });
+
+  closeConnectionFn();
+  context.res = { status: 200, body: { result, user: ops[0] } };
 };
