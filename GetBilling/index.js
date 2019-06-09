@@ -28,6 +28,7 @@ module.exports = async function (context, req) {
         seller: 1,
         _id: 1,
         user: 1,
+        value: 1,
     }}
   ]);
   closeConnectionFn();
