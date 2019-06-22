@@ -7,8 +7,6 @@
   },
   "author": "",
   "dependencies": {
-    "azure-functions-bridge": "^0.1.2",
-    "mongodb": "^3.2.7",
-    "nuxt": "^2.8.1"
+    "mongodb": "^3.2.7"
   }
 }
