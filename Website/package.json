@@ -1,5 +1,6 @@
 {
   "dependencies": {
+    "@nuxtjs/axios": "^5.5.4",
     "azure-functions-bridge": "^0.1.2",
     "nuxt": "^2.8.1"
   }
